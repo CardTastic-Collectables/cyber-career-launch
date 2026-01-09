@@ -6,50 +6,52 @@ import {
   Terminal, 
   Database,
   Bug,
-  FileCode
+  Users,
+  Globe,
+  Brain
 } from "lucide-react";
 
 const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Security Operations",
+      title: "Cybersecurity",
       icon: Shield,
-      skills: ["SIEM (Splunk, ELK)", "Log Analysis", "Incident Response", "Threat Hunting"],
+      skills: ["Security Analytics & Monitoring", "Threat Detection", "Vulnerability Management", "Network Troubleshooting"],
     },
     {
       title: "Network Security",
       icon: Network,
-      skills: ["Wireshark", "TCP/IP", "Firewalls", "IDS/IPS"],
+      skills: ["Network Infrastructure Management", "VPN, DNS & DHCP Services", "Network Configuration", "TCP/IP"],
     },
     {
-      title: "Vulnerability Assessment",
-      icon: Search,
-      skills: ["Nmap", "Nessus", "Burp Suite", "OWASP Top 10"],
+      title: "Penetration Testing",
+      icon: Bug,
+      skills: ["Ethical Hacking", "Vulnerability Assessment", "Security Testing", "Risk Analysis"],
     },
     {
-      title: "Cryptography",
-      icon: Lock,
-      skills: ["PKI", "Encryption", "Hashing", "Digital Signatures"],
-    },
-    {
-      title: "Scripting & Automation",
+      title: "Development & Systems",
       icon: Terminal,
-      skills: ["Python", "Bash", "PowerShell", "Regex"],
+      skills: ["Software Development", "Algorithmics", "Database Administration", "Business Systems"],
     },
     {
-      title: "Systems & Platforms",
-      icon: Database,
-      skills: ["Linux", "Windows Server", "Active Directory", "Cloud (AWS/Azure)"],
+      title: "Digital & E-Commerce",
+      icon: Globe,
+      skills: ["Website Development", "SEO Optimization", "E-Commerce Platforms", "IT Infrastructure"],
+    },
+    {
+      title: "AI & Technology",
+      icon: Brain,
+      skills: ["AI-Driven Technologies", "Digital Learning Tools", "Educational Technology", "AI Tools Integration"],
     },
   ];
 
-  const tools = [
-    { name: "Kali Linux", icon: Terminal },
-    { name: "Metasploit", icon: Bug },
-    { name: "Wireshark", icon: Network },
-    { name: "Burp Suite", icon: Search },
-    { name: "Splunk", icon: Database },
-    { name: "Python", icon: FileCode },
+  const additionalSkills = [
+    { name: "Leadership & Team Management", icon: Users },
+    { name: "Stakeholder Engagement", icon: Users },
+    { name: "Strategic Planning", icon: Brain },
+    { name: "Data-Driven Problem-Solving", icon: Database },
+    { name: "Curriculum Development", icon: Globe },
+    { name: "Complex Concept Communication", icon: Terminal },
   ];
 
   return (
@@ -59,7 +61,7 @@ const SkillsSection = () => {
         <div className="flex items-center gap-3 mb-16 max-w-4xl mx-auto">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/50" />
           <h2 className="text-3xl md:text-4xl font-bold">
-            <span className="text-primary font-mono">02.</span> Skills & Tools
+            <span className="text-primary font-mono">02.</span> Skills & Expertise
           </h2>
           <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/50" />
         </div>
@@ -89,19 +91,19 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        {/* Tools bar */}
+        {/* Additional Skills bar */}
         <div className="max-w-4xl mx-auto">
           <h3 className="text-center text-muted-foreground font-mono text-sm mb-6 uppercase tracking-wider">
-            Preferred Tools
+            Additional Competencies
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {tools.map((tool) => (
+          <div className="flex flex-wrap justify-center gap-3">
+            {additionalSkills.map((skill) => (
               <div
-                key={tool.name}
+                key={skill.name}
                 className="flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-card/50 hover:border-primary/50 hover:box-glow transition-all duration-300"
               >
-                <tool.icon className="w-4 h-4 text-primary" />
-                <span className="text-sm font-mono">{tool.name}</span>
+                <skill.icon className="w-4 h-4 text-primary" />
+                <span className="text-sm font-mono">{skill.name}</span>
               </div>
             ))}
           </div>

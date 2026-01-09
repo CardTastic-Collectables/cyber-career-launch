@@ -12,7 +12,7 @@ const Footer = () => {
             </span>
           </div>
           <p className="text-sm text-muted-foreground font-mono">
-            © {new Date().getFullYear()} Alex Chen. All rights reserved.
+            © {new Date().getFullYear()} Jason Keyt. All rights reserved.
           </p>
         </div>
       </div>

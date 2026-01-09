@@ -1,25 +1,31 @@
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Linkedin, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://linkedin.com/in/",
-      handle: "your-profile",
-    },
-    {
-      name: "GitHub",
-      icon: Github,
-      url: "https://github.com/",
-      handle: "your-username",
-    },
+  const contactInfo = [
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:your.email@example.com",
-      handle: "your.email@example.com",
+      value: "jason.keyt@gmail.com",
+      url: "mailto:jason.keyt@gmail.com",
+    },
+    {
+      name: "Phone",
+      icon: Phone,
+      value: "0425-817-199",
+      url: "tel:+61425817199",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      value: "Jason Keyt",
+      url: "https://linkedin.com/in/jason-keyt",
+    },
+    {
+      name: "Location",
+      icon: MapPin,
+      value: "Caulfield South, VIC",
+      url: null,
     },
   ];
 
@@ -38,8 +44,8 @@ const ContactSection = () => {
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg text-muted-foreground mb-8">
             I'm actively seeking opportunities in cybersecurity and would love to connect. 
-            Whether you have a position available, want to collaborate on a project, or just 
-            want to chat about security – my inbox is always open.
+            Whether you have a position available, want to discuss security challenges, or 
+            just want to chat about the industry – my inbox is always open.
           </p>
 
           {/* CTA Button */}
@@ -49,31 +55,43 @@ const ContactSection = () => {
             className="mb-12 group"
             asChild
           >
-            <a href="mailto:your.email@example.com">
+            <a href="mailto:jason.keyt@gmail.com">
               <Send className="w-5 h-5 group-hover:animate-pulse" />
               Say Hello
             </a>
           </Button>
 
-          {/* Social Links */}
-          <div className="flex justify-center gap-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-card/50 transition-all duration-300"
+          {/* Contact Info */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {contactInfo.map((info) => (
+              <div
+                key={info.name}
+                className="group flex flex-col items-center gap-2 p-4 rounded-lg cyber-border bg-card/30 hover:bg-card/50 transition-all duration-300"
               >
                 <div className="p-3 rounded-full border border-primary/30 text-primary group-hover:box-glow group-hover:border-primary/60 transition-all">
-                  <link.icon className="w-5 h-5" />
+                  <info.icon className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-mono text-muted-foreground group-hover:text-primary transition-colors">
-                  {link.name}
-                </span>
-              </a>
+                <span className="text-xs font-mono text-muted-foreground">{info.name}</span>
+                {info.url ? (
+                  <a
+                    href={info.url}
+                    target={info.name === "LinkedIn" ? "_blank" : undefined}
+                    rel={info.name === "LinkedIn" ? "noopener noreferrer" : undefined}
+                    className="text-sm text-foreground hover:text-primary transition-colors text-center"
+                  >
+                    {info.value}
+                  </a>
+                ) : (
+                  <span className="text-sm text-foreground text-center">{info.value}</span>
+                )}
+              </div>
             ))}
           </div>
+
+          {/* References note */}
+          <p className="mt-12 text-sm text-muted-foreground font-mono">
+            <span className="text-primary">//</span> References available on request
+          </p>
         </div>
       </div>
     </section>
