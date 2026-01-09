@@ -28,18 +28,19 @@ const HeroSection = () => {
         {/* Main headline */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <span className="text-foreground">Hi, I'm </span>
-          <span className="gradient-text">Alex Chen</span>
+          <span className="gradient-text">Jason Keyt</span>
         </h1>
 
         {/* Subtitle with typing effect */}
         <p className="text-xl md:text-2xl text-muted-foreground font-mono mb-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          <span className="text-primary">&gt;</span> Aspiring Cybersecurity Professional
+          <span className="text-primary">&gt;</span> Cybersecurity Professional
           <span className="terminal-cursor" />
         </p>
 
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: "0.6s" }}>
-          Passionate about protecting digital assets, analyzing threats, and building secure systems. 
-          Ready to defend the digital frontier.
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+          25+ years of IT leadership transitioning into cybersecurity. CompTIA Security+, CySA+, 
+          PenTest+, Network+ certified. Passionate about protecting digital assets through 
+          network security, risk management, and incident response.
         </p>
 
         {/* CTA Buttons */}
@@ -47,11 +48,11 @@ const HeroSection = () => {
           <Button 
             variant="cyber" 
             size="lg" 
-            onClick={() => scrollToSection("projects")}
+            onClick={() => scrollToSection("certifications")}
             className="group"
           >
             <Shield className="w-5 h-5 group-hover:animate-pulse" />
-            View My Work
+            View Certifications
           </Button>
           <Button 
             variant="cyberOutline" 

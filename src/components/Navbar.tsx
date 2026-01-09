@@ -17,7 +17,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
     { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
@@ -48,7 +48,7 @@ const Navbar = () => {
             }}
           >
             <Shield className="w-6 h-6" />
-            <span className="font-mono font-bold">AC</span>
+            <span className="font-mono font-bold">JK</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -63,8 +63,8 @@ const Navbar = () => {
               </button>
             ))}
             <Button variant="cyberOutline" size="sm" className="ml-4" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                Resume
+              <a href="mailto:jason.keyt@gmail.com">
+                Contact
               </a>
             </Button>
           </div>
@@ -94,8 +94,8 @@ const Navbar = () => {
                 </button>
               ))}
               <Button variant="cyberOutline" size="sm" className="mt-2" asChild>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                  Resume
+                <a href="mailto:jason.keyt@gmail.com">
+                  Contact
                 </a>
               </Button>
             </div>
