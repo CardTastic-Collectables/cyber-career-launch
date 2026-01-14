@@ -4,18 +4,6 @@ import { Button } from "@/components/ui/button";
 const ContactSection = () => {
   const contactInfo = [
     {
-      name: "Email",
-      icon: Mail,
-      value: "jason.keyt@gmail.com",
-      url: "mailto:jason.keyt@gmail.com",
-    },
-    {
-      name: "Phone",
-      icon: Phone,
-      value: "0425-817-199",
-      url: "tel:+61425817199",
-    },
-    {
       name: "LinkedIn",
       icon: Linkedin,
       value: "Jason Keyt",
