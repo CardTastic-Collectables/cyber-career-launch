@@ -45,8 +45,8 @@ const SecurityToolsSection = () => {
     v: false,
     reason: false,
   });
-  const [nmapScript, setNmapScript] = useState("");
-  const [nmapTiming, setNmapTiming] = useState("");
+  const [nmapScript, setNmapScript] = useState("none");
+  const [nmapTiming, setNmapTiming] = useState("default");
   const [nmapSourcePort, setNmapSourcePort] = useState("");
   
   // Hping3 state
@@ -59,7 +59,7 @@ const SecurityToolsSection = () => {
     fin: false,
     flood: false,
   });
-  const [hpingMode, setHpingMode] = useState("");
+  const [hpingMode, setHpingMode] = useState("tcp");
   
   // Enumeration state
   const [enumTarget, setEnumTarget] = useState("10.10.1.22");
@@ -80,15 +80,15 @@ const SecurityToolsSection = () => {
     if (nmapOptions.v) cmd += " -v";
     if (nmapOptions.reason) cmd += " --reason";
     if (nmapSourcePort) cmd += ` -g ${nmapSourcePort}`;
-    if (nmapTiming) cmd += ` ${nmapTiming}`;
-    if (nmapScript) cmd += ` --script=${nmapScript}`;
+    if (nmapTiming && nmapTiming !== "default") cmd += ` ${nmapTiming}`;
+    if (nmapScript && nmapScript !== "none") cmd += ` --script=${nmapScript}`;
     cmd += ` ${nmapTarget}`;
     return cmd;
   };
 
   const buildHpingCommand = () => {
     let cmd = `hping3`;
-    if (hpingMode) cmd += ` ${hpingMode}`;
+    if (hpingMode && hpingMode !== "tcp") cmd += ` ${hpingMode}`;
     if (hpingFlags.syn) cmd += " -S";
     if (hpingFlags.ack) cmd += " -A";
     if (hpingFlags.fin) cmd += " -F";
@@ -281,7 +281,7 @@ const SecurityToolsSection = () => {
                       <SelectValue placeholder="Default (T3)" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Default (T3)</SelectItem>
+                      <SelectItem value="default">Default (T3)</SelectItem>
                       <SelectItem value="-T4">T4 (Aggressive)</SelectItem>
                       <SelectItem value="-T5">T5 (Insane)</SelectItem>
                     </SelectContent>
@@ -294,7 +294,7 @@ const SecurityToolsSection = () => {
                       <SelectValue placeholder="(None)" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">(None)</SelectItem>
+                      <SelectItem value="none">(None)</SelectItem>
                       <SelectItem value="vuln">vuln</SelectItem>
                       <SelectItem value="http-enum">http-enum</SelectItem>
                       <SelectItem value="smb-os-discovery">smb-os-discovery</SelectItem>
@@ -328,7 +328,7 @@ const SecurityToolsSection = () => {
                       <SelectValue placeholder="TCP (Default)" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">TCP (Default)</SelectItem>
+                      <SelectItem value="tcp">TCP (Default)</SelectItem>
                       <SelectItem value="-1">ICMP Mode (-1)</SelectItem>
                       <SelectItem value="-2">UDP Mode (-2)</SelectItem>
                       <SelectItem value="-8">Scan Mode (-8)</SelectItem>
